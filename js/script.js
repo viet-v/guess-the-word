@@ -28,7 +28,7 @@ const word = "magnolia";
 const guessedLetter = [];
 
 
-// Letter placeholders
+// Letter placeholders, just to tell user how many letters needed
 const wordSymbol = function (word) {
     let words = "";
     for (let letter of word) {
@@ -46,8 +46,8 @@ guessButton.addEventListener("click", function(e){
     // console.log(inputValue);
     const goodGuess = checkInput(inputValue);
     if (goodGuess) 
-        {makeGuess(goodGuess);}
-    
+        {makeGuess(goodGuess);};
+    // correctGuessed(guessedLetter);
 });
 
 const checkInput = function (input) {
@@ -71,5 +71,37 @@ const makeGuess = function (letter) {
     } else {
         guessedLetter.push(letter);
         console.log(guessedLetter);
+        guessedLetterList();
+        updateWordInProgress(guessedLetter);
     }
 };
+
+const guessedLetterList = function() {
+    guessedLetters.innerHTML = "";
+    for (let letter of guessedLetter) {
+    const li = document.createElement("li");
+    li.innerText = letter;
+    guessedLetters.append(li);}
+};
+
+const updateWordInProgress = function (guessedLetter){
+    const wordUpper = word.toUpperCase();
+    const wordArray = wordUpper.split("");
+    const revealWord = [];
+    for (let letter of wordArray)  {
+        if (guessedLetter.includes(letter)) {
+            revealWord.push(letter);
+        } else {
+            revealWord.push("●");
+        }
+    };
+    wordInProgress.innerText = revealWord.join("");
+    checkIfWin();
+};
+
+const checkIfWin = function (){
+    if (wordInProgress.innerText === word.toUpperCase()) {
+        message.classList.add("win");
+        message.innerHTML = '<p class="hightlight">You guessed the correct word! Congrats!</p>';
+    }
+}
