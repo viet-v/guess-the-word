@@ -140,7 +140,7 @@ const countGuessRemain = function (guess) {
     word = word.toUpperCase();
 
     if (!word.includes(guess)) {
-        message.innerText = `Uh ohh, the word doesn't contain ${guess}`;
+        message.innerText = `Oops, the word doesn't contain ${guess}`;
         remainingGuesses -= 1;
     } else {
         message.innerText = `Good guess! The word has the letter ${guess}`;

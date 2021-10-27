@@ -11,12 +11,19 @@ body {
   font-style: normal;
   font-size: 20px;
   line-height: 150%;
-  background-color: #dff6f6;
-  background-image: url("../img/bg.png");
-  background-size: 800px;
-  background-repeat: repeat;
   color: #305050;
+  background: linear-gradient(45deg, #40E0D0, #9FE2BF, #F7DC6F, #DFFF00) fixed;
+  background-size: 200%;
+  animation: animate 5s ease infinite;
 }
+
+/* background animation */
+@keyframes animate {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
 
 .logo {
   width: 70%;
@@ -35,9 +42,6 @@ h1 {
 }
 
 .container {
-  background: radial-gradient(50% 50% at 50% 50%,
-    rgba(167, 237, 237, 0.3) 0%,
-    rgba(156, 226, 226, 0) 100%);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -134,7 +138,7 @@ input:focus {
   color: white;
 }
 
-/* animatied background */
+/* animated background of winning message */
 .win {
   padding: 0 1em;
   background: linear-gradient(-45deg, #ff9d64, #f5620c);
@@ -155,3 +159,4 @@ input:focus {
     background-position: 0% 50%;
   }
 }
+
