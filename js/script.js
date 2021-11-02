@@ -38,7 +38,7 @@ const getWord = async function () {
     const data = await fetch("https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt");
     const words = await data.text();
     const wordArray = words.split("\n");  /* turns words to an array with seperated elements */
-    // console.log(wordArray);
+
     getRandomWord(wordArray);
 };
 
@@ -51,7 +51,6 @@ const getRandomWord = function (wordArray) {
     randomWord = randomWord.trim();
     word = randomWord;
     wordSymbol (word);
-    // console.log(word);
 };
 
 
@@ -101,7 +100,6 @@ const makeGuess = function (letter) {
         message.innerText = "You've already guessed that letter, try again";
     } else {
         guessedLetter.push(letter);
-        console.log(guessedLetter);
         guessedLetterList();
         countGuessRemain(letter);
         updateWordInProgress(guessedLetter);
