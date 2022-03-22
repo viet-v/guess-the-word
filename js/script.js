@@ -38,7 +38,7 @@ const getWord = async function () {
     const data = await fetch("https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt");
     const words = await data.text();
     const wordArray = words.split("\n");  /* turns words to an array with seperated elements */
-
+    // console.log(wordArray)
     getRandomWord(wordArray);
 };
 
@@ -50,7 +50,7 @@ const getRandomWord = function (wordArray) {
     let randomWord = wordArray[randomIndex];
     randomWord = randomWord.trim();
     word = randomWord;
-    wordSymbol (word);
+    wordSymbol(word);
 };
 
 
@@ -110,9 +110,9 @@ const makeGuess = function (letter) {
 const guessedLetterList = function() {
     guessedLetters.innerHTML = "";
     for (let letter of guessedLetter) {
-    const li = document.createElement("li");
-    li.innerText = letter;
-    guessedLetters.append(li);}
+        const li = document.createElement("li");
+        li.innerText = letter;
+        guessedLetters.append(li);}
 };
 
 
